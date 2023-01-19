@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Spectral:wght@300&display=swap');
+
+body{
+  font-family: 'Spectral';
+}
+
+.headerName{
+  text-align: center;
+  font-size: 1.5rem;
+} 
