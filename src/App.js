@@ -1,4 +1,5 @@
 import "./App.css";
+import { motion } from "framer-motion"
 
 function App() {
   const text = 'building \n something \n for bois.';
@@ -8,7 +9,9 @@ function App() {
   return (
     <>
       <div className="App">
-      <p className="headerName">{newText}</p>
+      <motion.p animate={{ color: 'tomato', y: -10}} initial={{y: -300}} className="headerName">{newText}</motion.p>
+      {/* <img className="header-img" src="/bois1.jpg" /> */}
+      {/* <motion.button  animate={{scale: 1.5}}>LOTR</motion.button> */}
       </div>
     </>
   );
