@@ -1,7 +1,7 @@
 import "./App.css";
 import { motion } from "framer-motion";
 import Geolocation from "./Components/Geolocation";
-import bro from './bro.mp3'
+import Audio from "./Components/Audio";
 
 function App() {
   const text = "building \n something \n for bois.";
@@ -10,18 +10,18 @@ function App() {
   });
   return (
     <>
-    <audio src={bro} autoPlay controls/>
       <div className="App">
-        <motion.p
+        <motion.div
           animate={{ color: "#ffff", y: -10 }}
           initial={{ y: -300 }}
           className="headerName"
         >
           {newText}
-        </motion.p>
+        </motion.div>
         {/* <img className="header-img" src="/bois1.jpg" /> */}
       </div>
       {/* <Geolocation /> */}
+      <Audio />
     </>
   );
 }
