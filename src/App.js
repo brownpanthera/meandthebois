@@ -1,6 +1,7 @@
 import "./App.css";
 import { motion } from "framer-motion";
 import Geolocation from "./Components/Geolocation";
+import bro from './bro.mp3'
 
 function App() {
   const text = "building \n something \n for bois.";
@@ -9,6 +10,7 @@ function App() {
   });
   return (
     <>
+    <audio src={bro} autoPlay controls/>
       <div className="App">
         <motion.p
           animate={{ color: "#ffff", y: -10 }}
