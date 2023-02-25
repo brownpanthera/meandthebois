@@ -20,7 +20,6 @@ function App() {
         </motion.div>
         {/* <img className="header-img" src="/bois1.jpg" /> */}
       </div>
-      {/* <Geolocation /> */}
       <Audio />
     </>
   );
