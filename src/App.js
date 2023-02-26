@@ -2,9 +2,11 @@ import "./App.css";
 import { motion } from "framer-motion";
 import Geolocation from "./Components/Geolocation";
 import Audio from "./Components/Audio";
+import Header from "./Components/Header";
 
 function App() {
-  const text = "building \n something \n for bois.";
+  const text = "";
+  // const text = "building \n something \n for bois.";
   let newText = text.split("\n").map((i, index) => {
     return <p key={index.toString()}>{i}</p>;
   });
@@ -21,6 +23,7 @@ function App() {
         {/* <img className="header-img" src="/bois1.jpg" /> */}
       </div>
       <Audio />
+      <Header />
     </>
   );
 }
