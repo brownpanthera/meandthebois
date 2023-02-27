@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Link, Router } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import ChessProfile from "./ChessProfile";
 
 export default function Header() {

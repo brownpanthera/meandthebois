@@ -29,13 +29,12 @@ body {
   cursor: pointer;
 }
 
-.header{
+.header {
   display: flex;
   justify-content: end;
-  
 }
 
-.logo{
+.logo {
   position: absolute;
   right: 10px;
   margin-bottom: 10px;
@@ -44,33 +43,37 @@ body {
   cursor: pointer;
 }
 
-h2{
+h2 {
   color: white;
 }
 
-
 /* chess profile */
 .avatar {
+  border-style: none;
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   background-color: #ffff;
   margin: -30px;
   transform: rotate(0deg) translate(70px) rotate(0deg);
 }
 
-.avatar:nth-child(2) {
-  transform: rotate(90deg) translate(70px) rotate(-90deg);
-}
+  .avatar:nth-child(2) {
+    transform: rotate(90deg) translate(70px) rotate(-90deg);
+  }
 
-.avatar:nth-child(3) {
-  transform: rotate(180deg) translate(70px) rotate(0deg);
-}
+  .avatar:nth-child(3) {
+    transform: rotate(180deg) translate(70px) rotate(0deg);
+  }
 
-.avatar:nth-child(4) {
-  transform: rotate(-90deg) translate(70px) rotate(90deg);
-}
+  .avatar:nth-child(4) {
+    transform: rotate(-90deg) translate(70px) rotate(90deg);
+  }
 
+.avatar img{
+  border-radius: 50%;
+  cursor: pointer;
+}
