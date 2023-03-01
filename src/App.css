@@ -47,7 +47,8 @@ h2 {
   color: white;
 }
 
-/* chess profile */
+
+/* CHESS PROFILE AVATARS */
 .avatar {
   border-style: none;
   position: absolute;
@@ -58,22 +59,25 @@ h2 {
   border-radius: 50%;
   background-color: #ffff;
   margin: -30px;
-  transform: rotate(0deg) translate(70px) rotate(0deg);
+  transform: rotate(0deg) translate(90px) rotate(0deg);   
 }
 
-  .avatar:nth-child(2) {
-    transform: rotate(90deg) translate(70px) rotate(-90deg);
-  }
+.avatar:nth-child(2) {
+  transform: rotate(90deg) translate(90px) rotate(-90deg); 
+}
 
-  .avatar:nth-child(3) {
-    transform: rotate(180deg) translate(70px) rotate(0deg);
-  }
+.avatar:nth-child(3) {
+  transform: rotate(180deg) translate(90px) rotate(0deg); 
+}
 
-  .avatar:nth-child(4) {
-    transform: rotate(-90deg) translate(70px) rotate(90deg);
-  }
+.avatar:nth-child(4) {
+  transform: rotate(-90deg) translate(90px) rotate(90deg); 
+}
 
 .avatar img{
   border-radius: 50%;
   cursor: pointer;
 }
+
+
+/* MODAL CARD */  

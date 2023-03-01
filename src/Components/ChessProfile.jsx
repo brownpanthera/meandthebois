@@ -19,17 +19,24 @@ export default function ChessProfile() {
     });
   }, []);
 
-  console.log(playerData);
+  // function for converting unix timestamp
+
+  // function for MODAL
+  function onClickingImage(){
+    console.log("clicked");
+  }
+
 
   return (
     <>
       <div className="avatar-container">
         {playerData.map(({ username, avatar }) => (
+          
           <div key={username} className="avatar">
             {avatar ? (
-              <img src={avatar} alt={username} width={100} height={100}/>
+              <img onClick={onClickingImage} src={avatar} alt={username} width={100} height={100}/>
             ) : (
-              <img src="/c" alt={''} />
+              <img src="" alt={''} />
             )}
           </div>
         ))}
