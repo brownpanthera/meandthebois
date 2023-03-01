@@ -47,6 +47,7 @@ export default function ChessProfile() {
           </div>
         ))}
       </div>
+      
       {selectedAvatar && (
         <div className="modal">
           <div className="modal-content">

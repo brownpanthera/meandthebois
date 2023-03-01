@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Spectral:wght@300&display=swap");
 
 body {
-  font-family: "Spectral";
+  font-family: monospace;
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40"><rect x="0" y="0" width="40" height="40" stroke="white" stroke-opacity="0.1" stroke-width="0.935238" fill="black"></rect></svg>');
 }
 
