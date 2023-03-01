@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {IoCloseSharp} from 'react-icons/io5';
 
 export default function ChessProfile() {
   // DATA state
@@ -6,7 +7,7 @@ export default function ChessProfile() {
 
   //MODAL state
   const [selectedAvatar, setSelectedAvatar] = useState(null);
-
+  
   useEffect(() => {
     const ali = "https://api.chess.com/pub/player/brownpanthera";
     const ankit = "https://api.chess.com/pub/player/notsamayraiinaaa";
@@ -22,16 +23,22 @@ export default function ChessProfile() {
       setPlayerData(data);
     });
   }, []);
-
+  
   function onClickingImage(username) {
     console.log(`avatar ${username}`);
     setSelectedAvatar(username);
   }
 
+  // function forLeague(league){
+  //   console.log(league);
+  //   setSelectedAvatar(league)
+  // }
   return (
     <>
+
+    {/* CIRCULAR AVATARS */}
       <div className="avatar-container">
-        {playerData.map(({ username, avatar }) => (
+        {playerData.map(({ username, avatar}) => (
           <div key={username} className="avatar">
             {avatar ? (
               <img
@@ -48,12 +55,13 @@ export default function ChessProfile() {
         ))}
       </div>
       
+      {/* MODAL */}
       {selectedAvatar && (
-        <div className="modal">
-          <div className="modal-content">
-            <h2>{selectedAvatar}</h2>
-            <button onClick={() => setSelectedAvatar(null)}>Close</button>
-          </div>
+        <div className="modal"> 
+            <h2 className="modal_playerName">{selectedAvatar}</h2>
+            <p>{}</p>
+            <button className="modal_close_button" onClick={() => setSelectedAvatar(null)}>{<IoCloseSharp size={20}/>}</button>
+          
         </div>
       )}
     </>

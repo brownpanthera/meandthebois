@@ -1,18 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Spectral:wght@300&display=swap");
 
 body {
-  font-family: monospace;
+  font-family: 'Spectral';
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40"><rect x="0" y="0" width="40" height="40" stroke="white" stroke-opacity="0.1" stroke-width="0.935238" fill="black"></rect></svg>');
 }
+
 
 .App {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   background: #0000;
 }
 
 .headerName {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 1.5rem;
   line-height: 0.2rem;
 }
@@ -79,5 +85,34 @@ h2 {
   cursor: pointer;
 }
 
+.modal_close_button{
+  color: #1cbb1c;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
 
 /* MODAL CARD */  
+.modal{
+  border: 2px solid #0f960f;
+  margin: 50px;
+  padding: 20px;
+  width: 25%;
+  border-radius: 5px;
+}
+
+.modal_playerName{
+
+}
+
+p{
+  color: white;
+}
+
+
+
+
+
+
+
+
