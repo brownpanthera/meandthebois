@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import {IoCloseSharp} from 'react-icons/io5';
+import { IoCloseSharp } from "react-icons/io5";
 
 export default function ChessProfile() {
   // DATA state
   const [playerData, setPlayerData] = useState([]);
 
   //MODAL state
-  const [selectedAvatar, setSelectedAvatar] = useState(null);
-  
+  const [selectedPlayer, setSelectedPlayer] = useState(null);
+
   useEffect(() => {
     const ali = "https://api.chess.com/pub/player/brownpanthera";
     const ankit = "https://api.chess.com/pub/player/notsamayraiinaaa";
@@ -23,26 +23,36 @@ export default function ChessProfile() {
       setPlayerData(data);
     });
   }, []);
-  
-  function onClickingImage(username) {
+
+  function onClickingImage({ name, username, last_online, league }) {
     console.log(`avatar ${username}`);
-    setSelectedAvatar(username);
+    console.log(online(last_online));
+    console.log(`bhai ki leagus ${league}`);
+    setSelectedPlayer({ name, username, last_online, league });
   }
 
-  // function forLeague(league){
-  //   console.log(league);
-  //   setSelectedAvatar(league)
-  // }
+  // Function for Last Online [INDIAN STANDARD TIME]
+  function online(last_online) {
+    const date = new Date(last_online * 1000);
+    const actual_date = date.toLocaleString("en-US", {
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    });
+    return actual_date;
+  }
+
   return (
     <>
-
-    {/* CIRCULAR AVATARS */}
+      {/* CIRCULAR AVATARS */}
       <div className="avatar-container">
-        {playerData.map(({ username, avatar}) => (
+        {playerData.map(({ name, username, avatar, last_online, league }) => (
           <div key={username} className="avatar">
             {avatar ? (
               <img
-                onClick={() => onClickingImage(username)}
+                onClick={() =>
+                  onClickingImage({ name, username, last_online, league })
+                }
                 src={avatar}
                 alt={username}
                 width={100}
@@ -54,14 +64,26 @@ export default function ChessProfile() {
           </div>
         ))}
       </div>
-      
+
       {/* MODAL */}
-      {selectedAvatar && (
-        <div className="modal"> 
-            <h2 className="modal_playerName">{selectedAvatar}</h2>
-            <p>{}</p>
-            <button className="modal_close_button" onClick={() => setSelectedAvatar(null)}>{<IoCloseSharp size={20}/>}</button>
-          
+      {selectedPlayer && (
+        <div className="modal">
+          <h2 className="modal_playerName">{selectedPlayer.username}</h2>
+          {
+            selectedPlayer.name ? (
+              <p>{selectedPlayer.name}</p>
+            ) : (
+              <p>bhai name update kar chess[dot]com pe jaake</p>
+            )
+          }
+          <p>League: {selectedPlayer.league}</p>
+          <p>Last Online: {online(selectedPlayer.last_online)}</p>
+          <button
+            className="modal_close_button"
+            onClick={() => setSelectedPlayer(null)}
+          >
+            {<IoCloseSharp size={20} />}
+          </button>
         </div>
       )}
     </>
