@@ -94,7 +94,7 @@ h2 {
 
 /* MODAL CARD */  
 .modal{
-  border: 2px solid #0f960f;
+  /* border: 2px solid #0f960f; */
   margin: 50px;
   padding: 20px;
   width: 25%;
