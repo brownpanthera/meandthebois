@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 
 export default function ChessProfile() {
+  // DATA state
   const [playerData, setPlayerData] = useState([]);
+
+  //MODAL state
+  const [selectedAvatar, setSelectedAvatar] = useState(null);
 
   useEffect(() => {
     const ali = "https://api.chess.com/pub/player/brownpanthera";
@@ -19,28 +23,38 @@ export default function ChessProfile() {
     });
   }, []);
 
-  // function for converting unix timestamp
-
-  // function for MODAL
-  function onClickingImage(){
-    console.log("clicked");
+  function onClickingImage(username) {
+    console.log(`avatar ${username}`);
+    setSelectedAvatar(username);
   }
-
 
   return (
     <>
       <div className="avatar-container">
         {playerData.map(({ username, avatar }) => (
-          
           <div key={username} className="avatar">
             {avatar ? (
-              <img onClick={onClickingImage} src={avatar} alt={username} width={100} height={100}/>
+              <img
+                onClick={() => onClickingImage(username)}
+                src={avatar}
+                alt={username}
+                width={100}
+                height={100}
+              />
             ) : (
-              <img src="" alt={''} />
+              <img src="" alt={""} />
             )}
           </div>
         ))}
       </div>
+      {selectedAvatar && (
+        <div className="modal">
+          <div className="modal-content">
+            <h2>{selectedAvatar}</h2>
+            <button onClick={() => setSelectedAvatar(null)}>Close</button>
+          </div>
+        </div>
+      )}
     </>
   );
 }
