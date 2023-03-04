@@ -76,10 +76,10 @@ export default function ChessProfile() {
       {/* MODAL */}
       {selectedPlayer && (
         <div className="modal">
-          <h2 className="modal_playerName">{selectedPlayer.username}</h2>
+          <h2 className="modal_playerName"><span>{selectedPlayer.username}</span></h2>
           {
             selectedPlayer.name ? (
-              <p><span>{selectedPlayer.name}</span></p>
+              <p>{selectedPlayer.name}</p>
             ) : (
               <p><span>bhai name update kar chess[dot]com pe jaake</span></p>
             )
