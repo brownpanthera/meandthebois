@@ -13,12 +13,14 @@ export default function ChessProfile() {
     const ankit = "https://api.chess.com/pub/player/notsamayraiinaaa";
     const avnish = "https://api.chess.com/pub/player/avnish0";
     const dev = "https://api.chess.com/pub/player/angryskuii";
+    const deepanshu ="https://api.chess.com/pub/player/jaat54";
 
     Promise.all([
       fetch(ali).then((response) => response.json()),
       fetch(ankit).then((response) => response.json()),
       fetch(avnish).then((response) => response.json()),
       fetch(dev).then((response) => response.json()),
+      fetch(deepanshu).then((response) => response.json()),
     ]).then((data) => {
       setPlayerData(data);
     });
@@ -27,7 +29,7 @@ export default function ChessProfile() {
   function onClickingImage({ name, username, last_online, league }) {
     console.log(`avatar ${username}`);
     console.log(online(last_online));
-    console.log(`bhai ki leagus ${league}`);
+    console.log(`bhai ki league ${league}`);
     setSelectedPlayer({ name, username, last_online, league });
   }
 
@@ -59,7 +61,12 @@ export default function ChessProfile() {
                 height={100}
               />
             ) : (
-              <img src="" alt={""} />
+              
+              <img
+              onClick={() =>
+                  onClickingImage({ name, username, last_online, league })
+                }
+               src="https://via.placeholder.com/100x100.png?text=No+Avatar" alt={username} />
             )}
           </div>
         ))}
