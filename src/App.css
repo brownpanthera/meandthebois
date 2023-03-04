@@ -117,15 +117,14 @@ h2 {
 } */
 
 .modal {
+  width: 30%;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #4b0a0a;
   padding: 20px;
-  border-radius: 5px;
-  color: white; 
-  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px; 
 }
 
 
