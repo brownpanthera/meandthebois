@@ -8,6 +8,7 @@ export default function ChessProfile() {
   //MODAL state
   const [selectedPlayer, setSelectedPlayer] = useState(null);
 
+
   useEffect(() => {
     const ali = "https://api.chess.com/pub/player/brownpanthera";
     const ankit = "https://api.chess.com/pub/player/notsamayraiinaaa";
@@ -47,7 +48,7 @@ export default function ChessProfile() {
   return (
     <>
       {/* CIRCULAR AVATARS */}
-      <div className="avatar-container">
+        <div className="avatar-container">
         {playerData.map(({ name, username, avatar, last_online, league }) => (
           <div key={username} className="avatar">
             {avatar ? (

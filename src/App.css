@@ -98,13 +98,40 @@ h2 {
 }
 
 /* MODAL CARD */  
-.modal{
-  /* border: 2px solid #0f960f; */
-  margin: 50px;
+/* .modal{
+  border: 2px solid #0f960f;
+   margin: 50px;
   padding: 20px;
   width: 25%;
   border-radius: 5px;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  padding: 20px;
+  border-radius: 5px;
+  color: white;
+} */
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 5px;
+  color: white; 
+  background-color: rgba(0, 0, 0, 0.5);
 }
+
+
+/* .avatar-container{
+  display: none;
+} */
 
 p{
   font-size: medium;
