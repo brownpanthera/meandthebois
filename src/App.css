@@ -1,10 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Spectral:wght@300&display=swap");
 
 body {
-  font-family: 'Spectral';
+  font-family: "Spectral";
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40"><rect x="0" y="0" width="40" height="40" stroke="white" stroke-opacity="0.1" stroke-width="0.935238" fill="black"></rect></svg>');
 }
-
 
 .App {
   display: flex;
@@ -54,7 +53,6 @@ h2 {
   font-family: monospace;
 }
 
-
 /* CHESS PROFILE AVATARS */
 .avatar {
   border-style: none;
@@ -66,38 +64,38 @@ h2 {
   border-radius: 50%;
   background-color: #ffff;
   margin: -50px;
-  transform: rotate(0deg) translate(100px) rotate(0deg);   
+  transform: rotate(0deg) translate(100px) rotate(0deg);
 }
 
 .avatar:nth-child(2) {
-  transform: rotate(60deg) translate(100px) rotate(-60deg); 
+  transform: rotate(60deg) translate(100px) rotate(-60deg);
 }
 
 .avatar:nth-child(3) {
-  transform: rotate(120deg) translate(100px) rotate(-120deg); 
+  transform: rotate(120deg) translate(100px) rotate(-120deg);
 }
 
 .avatar:nth-child(4) {
-  transform: rotate(180deg) translate(100px) rotate(-180deg); 
+  transform: rotate(180deg) translate(100px) rotate(-180deg);
 }
 
 .avatar:nth-child(5) {
-  transform: rotate(240deg) translate(100px) rotate(-240deg); 
+  transform: rotate(240deg) translate(100px) rotate(-240deg);
 }
 
-.avatar img{
+.avatar img {
   border-radius: 50%;
   cursor: pointer;
 }
 
-.modal_close_button{
+.modal_close_button {
   color: #1cbb1c;
   cursor: pointer;
   border: none;
   background: transparent;
 }
 
-/* MODAL CARD */  
+/* MODAL CARD */
 /* .modal{
   border: 2px solid #0f960f;
    margin: 50px;
@@ -124,18 +122,24 @@ h2 {
   transform: translate(-50%, -50%);
   background-color: #4b0a0a;
   padding: 20px;
-  border-radius: 5px; 
+  border-radius: 5px;
 }
-span{
+
+.avatar-container--hidden {
+  display: none;
+}
+
+
+span {
   color: #1cbb1c;
 }
 
-p{
+p {
   font-size: medium;
   color: white;
-  font-family:monospace;
+  font-family: monospace;
 }
 
-img{
+img {
   -webkit-tap-highlight-color: transparent;
 }

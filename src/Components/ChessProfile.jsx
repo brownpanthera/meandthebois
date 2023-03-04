@@ -8,13 +8,15 @@ export default function ChessProfile() {
   //MODAL state
   const [selectedPlayer, setSelectedPlayer] = useState(null);
 
+  //MODAL BACKDROP
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const ali = "https://api.chess.com/pub/player/brownpanthera";
     const ankit = "https://api.chess.com/pub/player/notsamayraiinaaa";
     const avnish = "https://api.chess.com/pub/player/avnish0";
     const dev = "https://api.chess.com/pub/player/angryskuii";
-    const deepanshu ="https://api.chess.com/pub/player/jaat54";
+    const deepanshu = "https://api.chess.com/pub/player/jaat54";
 
     Promise.all([
       fetch(ali).then((response) => response.json()),
@@ -28,10 +30,11 @@ export default function ChessProfile() {
   }, []);
 
   function onClickingImage({ name, username, last_online, league }) {
-    console.log(`avatar ${username}`);
-    console.log(online(last_online));
-    console.log(`bhai ki league ${league}`);
+    // console.log(`avatar ${username}`);
+    // console.log(online(last_online));
+    // console.log(`bhai ki league ${league}`);
     setSelectedPlayer({ name, username, last_online, league });
+    setIsOpen(true);
   }
 
   // Function for Last Online [INDIAN STANDARD TIME]
@@ -48,7 +51,7 @@ export default function ChessProfile() {
   return (
     <>
       {/* CIRCULAR AVATARS */}
-        <div className="avatar-container">
+      <div className= {`avatar-container ${isOpen ? 'avatar-container--hidden' : ''}`}>
         {playerData.map(({ name, username, avatar, last_online, league }) => (
           <div key={username} className="avatar">
             {avatar ? (
@@ -62,12 +65,13 @@ export default function ChessProfile() {
                 height={100}
               />
             ) : (
-              
               <img
-              onClick={() =>
+                onClick={() =>
                   onClickingImage({ name, username, last_online, league })
                 }
-               src="https://via.placeholder.com/100x100.png?text=No+Avatar" alt={username} />
+                src="https://via.placeholder.com/100x100.png?text=No+Avatar"
+                alt={username}
+              />
             )}
           </div>
         ))}
@@ -76,19 +80,28 @@ export default function ChessProfile() {
       {/* MODAL */}
       {selectedPlayer && (
         <div className="modal">
-          <h2 className="modal_playerName"><span>{selectedPlayer.username}</span></h2>
-          {
-            selectedPlayer.name ? (
-              <p>{selectedPlayer.name}</p>
-            ) : (
-              <p><span>bhai name update kar chess[dot]com pe jaake</span></p>
-            )
-          }
-          <p>League: <span>{selectedPlayer.league}</span></p>
-          <p>Last Online: <span>{online(selectedPlayer.last_online)}</span></p>
+          <h2 className="modal_playerName">
+            <span>{selectedPlayer.username}</span>
+          </h2>
+          {selectedPlayer.name ? (
+            <p>{selectedPlayer.name}</p>
+          ) : (
+            <p>
+              <span>bhai name update kar chess[dot]com pe jaake</span>
+            </p>
+          )}
+          <p>
+            League: <span>{selectedPlayer.league}</span>
+          </p>
+          <p>
+            Last Online: <span>{online(selectedPlayer.last_online)}</span>
+          </p>
           <button
             className="modal_close_button"
-            onClick={() => setSelectedPlayer(null)}
+            onClick={() => {
+            setSelectedPlayer(null)
+            setIsOpen(false);
+            }}
           >
             {<IoCloseSharp size={20} />}
           </button>

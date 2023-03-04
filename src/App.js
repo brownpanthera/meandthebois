@@ -1,6 +1,5 @@
 import "./App.css";
 import { motion } from "framer-motion";
-import Geolocation from "./Components/Geolocation";
 import Audio from "./Components/Audio";
 import Header from "./Components/Header";
 
