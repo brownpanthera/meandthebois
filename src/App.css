@@ -129,12 +129,13 @@ h2 {
 span{
   color: #1cbb1c;
 }
-/* .avatar-container{
-  display: none;
-} */
 
 p{
   font-size: medium;
   color: white;
   font-family:monospace;
+}
+
+img{
+  -webkit-tap-highlight-color: transparent;
 }
