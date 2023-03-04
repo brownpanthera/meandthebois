@@ -126,8 +126,9 @@ h2 {
   padding: 20px;
   border-radius: 5px; 
 }
-
-
+span{
+  color: #1cbb1c;
+}
 /* .avatar-container{
   display: none;
 } */

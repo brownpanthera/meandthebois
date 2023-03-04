@@ -79,13 +79,13 @@ export default function ChessProfile() {
           <h2 className="modal_playerName">{selectedPlayer.username}</h2>
           {
             selectedPlayer.name ? (
-              <p>{selectedPlayer.name}</p>
+              <p><span>{selectedPlayer.name}</span></p>
             ) : (
-              <p>bhai name update kar chess[dot]com pe jaake</p>
+              <p><span>bhai name update kar chess[dot]com pe jaake</span></p>
             )
           }
-          <p>League: {selectedPlayer.league}</p>
-          <p>Last Online: {online(selectedPlayer.last_online)}</p>
+          <p>League: <span>{selectedPlayer.league}</span></p>
+          <p>Last Online: <span>{online(selectedPlayer.last_online)}</span></p>
           <button
             className="modal_close_button"
             onClick={() => setSelectedPlayer(null)}
