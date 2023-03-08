@@ -5,8 +5,11 @@ export default function ChessProfile() {
   // DATA state
   const [playerData, setPlayerData] = useState([]);
 
-  //MODAL state
+  //MODAL state player basic detail
   const [selectedPlayer, setSelectedPlayer] = useState(null);
+
+  //MODAL player status
+  const [playerStatus, setPlayerStatus] = useState([]);
 
   //MODAL BACKDROP
   const [isOpen, setIsOpen] = useState(false);
@@ -29,11 +32,25 @@ export default function ChessProfile() {
     });
   }, []);
 
-  function onClickingImage({ name, username, last_online, league }) {
-    // console.log(`avatar ${username}`);
-    // console.log(online(last_online));
-    // console.log(`bhai ki league ${league}`);
-    setSelectedPlayer({ name, username, last_online, league });
+  // req on 2 diff param, and getting the data
+  function onClickingImage({ name, username, last_online, league, player_id }) {
+    fetch(`https://api.chess.com/pub/player/${username}/stats`)
+      .then((response) => response.json())
+      .then((data) => {
+        // added the rating data to the selectedPlayer state
+        setSelectedPlayer({
+          name,
+          username,
+          last_online,
+          league,
+          player_id,
+          rapid_rating: data.chess_rapid.last.rating,
+          blitz_rating: data.chess_blitz.last.rating,
+          bullet_rating: data.chess_bullet.last.rating
+        });
+        setIsOpen(true);
+      });
+    setSelectedPlayer({ name, username, last_online, league, player_id });
     setIsOpen(true);
   }
 
@@ -51,30 +68,48 @@ export default function ChessProfile() {
   return (
     <>
       {/* CIRCULAR AVATARS */}
-      <div className= {`avatar-container ${isOpen ? 'avatar-container--hidden' : ''}`}>
-        {playerData.map(({ name, username, avatar, last_online, league }) => (
-          <div key={username} className="avatar">
-            {avatar ? (
-              <img
-                onClick={() =>
-                  onClickingImage({ name, username, last_online, league })
-                }
-                src={avatar}
-                alt={username}
-                width={100}
-                height={100}
-              />
-            ) : (
-              <img
-                onClick={() =>
-                  onClickingImage({ name, username, last_online, league })
-                }
-                src="https://via.placeholder.com/100x100.png?text=No+Avatar"
-                alt={username}
-              />
-            )}
-          </div>
-        ))}
+      <div
+        className={`avatar-container ${
+          isOpen ? "avatar-container--hidden" : ""
+        }`}
+      >
+        {playerData.map(
+          ({ name, username, avatar, last_online, league, player_id }) => (
+            <div key={player_id} className="avatar">
+              {avatar ? (
+                <img
+                  onClick={() =>
+                    onClickingImage({
+                      name,
+                      username,
+                      last_online,
+                      league,
+                      player_id,
+                    })
+                  }
+                  src={avatar}
+                  alt={username}
+                  width={100}
+                  height={100}
+                />
+              ) : (
+                <img
+                  onClick={() =>
+                    onClickingImage({
+                      name,
+                      username,
+                      last_online,
+                      league,
+                      player_id,
+                    })
+                  }
+                  src="https://via.placeholder.com/100x100.png?text=No+Avatar"
+                  alt={username}
+                />
+              )}
+            </div>
+          )
+        )}
       </div>
 
       {/* MODAL */}
@@ -96,11 +131,36 @@ export default function ChessProfile() {
           <p>
             Last Online: <span>{online(selectedPlayer.last_online)}</span>
           </p>
+          <hr></hr>
+          {selectedPlayer.blitz_rating ? (
+            <p>
+              Rapid Rating: <span>{selectedPlayer.rapid_rating}</span>
+            </p>
+          ) : (
+            <p>Rapid Rating: <span>0</span></p>
+          )}
+
+          {selectedPlayer.blitz_rating ? (
+            <p>
+              Blitz Rating: <span>{selectedPlayer.blitz_rating}</span>
+            </p>
+          ) : (
+            <p>Blitz Rating: <span>0</span></p>
+          )}
+
+          {selectedPlayer.bullet_rating ? (
+            <p>
+              Bullet Rating: <span>{selectedPlayer.bullet_rating}</span>
+            </p>
+          ) : (
+            <p>Bullet Rating: <span>0</span></p>
+          )}
+
           <button
             className="modal_close_button"
             onClick={() => {
-            setSelectedPlayer(null)
-            setIsOpen(false);
+              setSelectedPlayer(null);
+              setIsOpen(false);
             }}
           >
             {<IoCloseSharp size={20} />}
