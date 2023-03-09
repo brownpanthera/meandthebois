@@ -8,9 +8,6 @@ export default function ChessProfile() {
   //MODAL state player basic detail
   const [selectedPlayer, setSelectedPlayer] = useState(null);
 
-  //MODAL player status
-  const [playerStatus, setPlayerStatus] = useState([]);
-
   //MODAL BACKDROP
   const [isOpen, setIsOpen] = useState(false);
 
@@ -32,8 +29,8 @@ export default function ChessProfile() {
     });
   }, []);
 
-  // req on 2 diff param, and getting the data
-  function onClickingImage({ name, username, last_online, league, player_id }) {
+  // REQ on 2 diff param, and getting the data
+  function onClickingImage({avatar, name, username, last_online, league, player_id }) {
     fetch(`https://api.chess.com/pub/player/${username}/stats`)
       .then((response) => response.json())
       .then((data) => {
@@ -46,11 +43,13 @@ export default function ChessProfile() {
           player_id,
           rapid_rating: data.chess_rapid.last.rating,
           blitz_rating: data.chess_blitz.last.rating,
-          bullet_rating: data.chess_bullet.last.rating
+          bullet_rating: data.chess_bullet.last.rating,
+          avatar: avatar,
+
         });
         setIsOpen(true);
       });
-    setSelectedPlayer({ name, username, last_online, league, player_id });
+    setSelectedPlayer({avatar, name, username, last_online, league, player_id });
     setIsOpen(true);
   }
 
@@ -85,6 +84,7 @@ export default function ChessProfile() {
                       last_online,
                       league,
                       player_id,
+                      avatar,
                     })
                   }
                   src={avatar}
@@ -101,6 +101,7 @@ export default function ChessProfile() {
                       last_online,
                       league,
                       player_id,
+                      avatar,
                     })
                   }
                   src="https://via.placeholder.com/100x100.png?text=No+Avatar"
@@ -115,6 +116,7 @@ export default function ChessProfile() {
       {/* MODAL */}
       {selectedPlayer && (
         <div className="modal">
+      <img src={selectedPlayer.avatar} alt={selectedPlayer.username} width={150}/>
           <h2 className="modal_playerName">
             <span>{selectedPlayer.username}</span>
           </h2>
