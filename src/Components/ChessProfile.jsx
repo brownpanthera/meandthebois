@@ -116,7 +116,7 @@ export default function ChessProfile() {
       {/* MODAL */}
       {selectedPlayer && (
         <div className="modal">
-      <img src={selectedPlayer.avatar} alt={selectedPlayer.username} width={125}/>
+      <img src={selectedPlayer.avatar} alt={selectedPlayer.username} width={100}/>
           <h2 className="modal_playerName">
             <span>{selectedPlayer.username}</span>
           </h2>
