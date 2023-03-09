@@ -154,15 +154,22 @@ hr{
   justify-content: center;
   align-items: center;
   width: 50%;
+  color: white;
   background-color: #202020;
   border-radius: 10px;
-}
-
-.rating{
-  color: white;
 }
 
 .chess_rating{
   display: grid;
   grid-template-columns: auto auto auto auto;
+  grid-gap: 20px;
+}
+
+@media (max-width: 767px) {
+  .rating {
+    width: 70px;
+  }
+  .modal{
+    width: 80%;
+  }
 }
