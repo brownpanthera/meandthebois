@@ -129,7 +129,6 @@ h2 {
   display: none;
 }
 
-
 span {
   color: #1cbb1c;
 }
@@ -144,11 +143,11 @@ img {
   -webkit-tap-highlight-color: transparent;
 }
 
-hr{
+hr {
   border-color: #1cbb1c;
 }
 
-.rating{
+.rating {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -159,17 +158,16 @@ hr{
   border-radius: 10px;
 }
 
-.chess_rating{
+.chess_rating {
   display: grid;
   grid-template-columns: auto auto auto auto;
-  grid-gap: 20px;
 }
 
 @media (max-width: 767px) {
   .rating {
     width: 70px;
   }
-  .modal{
+  .modal {
     width: 80%;
   }
 }
