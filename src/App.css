@@ -147,3 +147,22 @@ img {
 hr{
   border-color: #1cbb1c;
 }
+
+.rating{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  background-color: #202020;
+  border-radius: 10px;
+}
+
+.rating{
+  color: white;
+}
+
+.chess_rating{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
