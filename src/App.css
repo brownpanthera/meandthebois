@@ -73,29 +73,28 @@ h2 {
 }
 
 .avatar:nth-child(1) {
-  transform: translate(50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .avatar:nth-child(2) {
-  transform: rotate(60deg) translate(150px) rotate(-60deg) translate(-50%, -50%);
+  transform: rotate(60deg) translate(120px) rotate(-60deg) translate(-50%, -50%);
 }
 
 .avatar:nth-child(3) {
-  transform: rotate(120deg) translate(150px) rotate(-120deg) translate(-50%, -50%);
+  transform: rotate(120deg) translate(120px) rotate(-120deg) translate(-50%, -50%);
 }
 
 .avatar:nth-child(4) {
-  transform: rotate(180deg) translate(100px) rotate(-180deg) translate(-50%, -50%);
+  transform: rotate(180deg) translate(120px) rotate(-180deg) translate(-50%, -50%);
 }
 
 .avatar:nth-child(5) {
-  transform: rotate(240deg) translate(150px) rotate(-240deg) translate(-50%, -50%);
+  transform: rotate(240deg) translate(120px) rotate(-240deg) translate(-50%, -50%);
 }
 
 .avatar:nth-child(6) {
-  transform: rotate(300deg) translate(150px) rotate(-300deg) translate(-50%, -50%);
+  transform: rotate(300deg) translate(120px) rotate(-300deg) translate(-50%, -50%);
 }
-
 
 
 .avatar img {
