@@ -18,7 +18,7 @@ function Audio() {
 
   return (
     <div>
-      <audio autoPlay ref={audioRef} src={bro} />
+      <audio autoPlay loop ref={audioRef} src={bro} />
       {isPlaying ? (
         <button className='audio_button' onClick={handlePause}>{<FaPause />}</button>
       ) : (

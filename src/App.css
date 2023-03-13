@@ -80,6 +80,10 @@ h2 {
 }
 
 .avatar:nth-child(5) {
+  transform: rotate(90deg) translate(200px) rotate(270deg);
+}
+
+.avatar:nth-child(6) {
   transform: rotate(240deg) translate(100px) rotate(-240deg);
 }
 

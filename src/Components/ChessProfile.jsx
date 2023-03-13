@@ -20,6 +20,7 @@ export default function ChessProfile() {
     const avnish = "https://api.chess.com/pub/player/avnish0";
     const dev = "https://api.chess.com/pub/player/angryskuii";
     const deepanshu = "https://api.chess.com/pub/player/jaat54";
+    const shivam = "https://api.chess.com/pub/player/25dinmedouble";
 
     Promise.all([
       fetch(ali).then((response) => response.json()),
@@ -27,6 +28,7 @@ export default function ChessProfile() {
       fetch(avnish).then((response) => response.json()),
       fetch(dev).then((response) => response.json()),
       fetch(deepanshu).then((response) => response.json()),
+      fetch(shivam).then((response) => response.json()),
     ]).then((data) => {
       setPlayerData(data);
     });
@@ -120,7 +122,7 @@ export default function ChessProfile() {
                       avatar,
                     })
                   }
-                  src="https://via.placeholder.com/100x100.png?text=No+Avatar"
+                  src="./noavatar.gif" width={100}
                   alt={username}
                 />
               )}
@@ -140,7 +142,7 @@ export default function ChessProfile() {
             />
           ) : (
             <img
-              src="https://via.placeholder.com/100x100.png?text=No+Avatar"
+              src="./noavatar.gif" width={100}
               alt="No Avatar"
             />
           )}
@@ -169,7 +171,7 @@ export default function ChessProfile() {
                 <p className="rating">{selectedPlayer.blitz_rating}</p>
               </div>
             ) : (
-              <p className="rating">
+              <p className="no-rating">
                 Blitz Rating: <span>0</span>
               </p>
             )}
@@ -181,7 +183,7 @@ export default function ChessProfile() {
                 <p className="rating">{selectedPlayer.rapid_rating}</p>
               </div>
             ) : (
-              <p className="rating">
+              <p className="no-rating">
                 Blitz Rating: <span>0</span>
               </p>
             )}
@@ -193,7 +195,7 @@ export default function ChessProfile() {
                 <p className="rating">{selectedPlayer.bullet_rating}</p>
               </div>
             ) : (
-              <p className="rating">
+              <p className="no-rating">
                 Blitz Rating: <span>0</span>
               </p>
             )}
