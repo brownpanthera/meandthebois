@@ -54,38 +54,49 @@ h2 {
 }
 
 /* CHESS PROFILE AVATARS */
+.avatar-container {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+}
+
 .avatar {
-  border-style: none;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   width: 100px;
   height: 100px;
   border-radius: 50%;
   background-color: #ffff;
-  margin: -50px;
-  transform: rotate(0deg) translate(100px) rotate(0deg);
+  transform-origin: top left;
+}
+
+.avatar:nth-child(1) {
+  transform: translate(50%, -50%);
 }
 
 .avatar:nth-child(2) {
-  transform: rotate(60deg) translate(100px) rotate(-60deg);
+  transform: rotate(60deg) translate(150px) rotate(-60deg) translate(-50%, -50%);
 }
 
 .avatar:nth-child(3) {
-  transform: rotate(120deg) translate(100px) rotate(-120deg);
+  transform: rotate(120deg) translate(150px) rotate(-120deg) translate(-50%, -50%);
 }
 
 .avatar:nth-child(4) {
-  transform: rotate(180deg) translate(100px) rotate(-180deg);
+  transform: rotate(180deg) translate(100px) rotate(-180deg) translate(-50%, -50%);
 }
 
 .avatar:nth-child(5) {
-  transform: rotate(90deg) translate(200px) rotate(270deg);
+  transform: rotate(240deg) translate(150px) rotate(-240deg) translate(-50%, -50%);
 }
 
 .avatar:nth-child(6) {
-  transform: rotate(240deg) translate(100px) rotate(-240deg);
+  transform: rotate(300deg) translate(150px) rotate(-300deg) translate(-50%, -50%);
 }
+
+
 
 .avatar img {
   border-radius: 50%;
