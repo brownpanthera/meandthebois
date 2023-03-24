@@ -3,6 +3,7 @@ import { IoCloseSharp } from "react-icons/io5";
 import { BsFillLightningFill } from "react-icons/bs";
 import { MdOutlineTimer } from "react-icons/md";
 import { GiBulletBill } from "react-icons/gi";
+import { BiLoaderCircle } from "react-icons/bi"
 
 export default function ChessProfile() {
   // DATA state
@@ -13,6 +14,9 @@ export default function ChessProfile() {
 
   //MODAL BACKDROP
   const [isOpen, setIsOpen] = useState(false);
+
+  //LODER
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const ali = "https://api.chess.com/pub/player/brownpanthera";
@@ -43,6 +47,7 @@ export default function ChessProfile() {
     league,
     player_id,
   }) {
+    setIsLoading(true)
     fetch(`https://api.chess.com/pub/player/${username}/stats`)
       .then((response) => response.json())
       .then((data) => {
@@ -69,6 +74,7 @@ export default function ChessProfile() {
       player_id,
     });
     setIsOpen(true);
+    setIsLoading(false);
   }
 
   // Function for Last Online [INDIAN STANDARD TIME]
@@ -132,7 +138,11 @@ export default function ChessProfile() {
       </div>
 
       {/* MODAL */}
-      {selectedPlayer && (
+
+      {isLoading ? (
+        <div className="loader">{<BiLoaderCircle width={100}/>}</div>
+      ) : (
+        selectedPlayer && (
         <div className="modal">
           {selectedPlayer.avatar ? (
             <img
@@ -211,7 +221,12 @@ export default function ChessProfile() {
             </button>
           </div>
         </div>
-      )}
+      )
+      )
+      
+      }
+
+      
     </>
   );
 }
