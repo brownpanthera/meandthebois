@@ -4,7 +4,7 @@ import { FaPlay, FaPause } from 'react-icons/fa'
 
 function Audio() {
   const audioRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   function handlePlay() {
     audioRef.current.play();

@@ -1,11 +1,8 @@
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import App from "../App";
 import ChessProfile from "./ChessProfile";
-import Main from "./Main";
-import Gallery from "./Gallery"
 
-export default function Header() {
+export default function Main() {
   return (
     <>
       <div className="header">
@@ -15,12 +12,8 @@ export default function Header() {
       </div>
 
       <Routes>
-      <Route path="*" element={<Main />}/>
         <Route path="chess" element={<ChessProfile />}/>
-        <Route path="gallery" element={<Gallery />} />
       </Routes>
     </>
   );
 }
-
-// replicate of App, will fix it infuture
