@@ -3,7 +3,7 @@ import { IoCloseSharp } from "react-icons/io5";
 import { BsFillLightningFill } from "react-icons/bs";
 import { MdOutlineTimer } from "react-icons/md";
 import { GiBulletBill } from "react-icons/gi";
-import { BiLoaderCircle } from "react-icons/bi"
+import { BiLoaderCircle } from "react-icons/bi";
 
 export default function ChessProfile() {
   // DATA state
@@ -16,7 +16,7 @@ export default function ChessProfile() {
   const [isOpen, setIsOpen] = useState(false);
 
   //LODER
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const ali = "https://api.chess.com/pub/player/brownpanthera";
@@ -47,7 +47,7 @@ export default function ChessProfile() {
     league,
     player_id,
   }) {
-    setIsLoading(true)
+    setIsLoading(true);
     fetch(`https://api.chess.com/pub/player/${username}/stats`)
       .then((response) => response.json())
       .then((data) => {
@@ -128,7 +128,8 @@ export default function ChessProfile() {
                       avatar,
                     })
                   }
-                  src="./noavatar.gif" width={100}
+                  src="./noavatar.gif"
+                  width={100}
                   alt={username}
                 />
               )}
@@ -140,93 +141,86 @@ export default function ChessProfile() {
       {/* MODAL */}
 
       {isLoading ? (
-        <div className="loader">{<BiLoaderCircle width={100}/>}</div>
+        <div className="loader">{<BiLoaderCircle width={100} />}</div>
       ) : (
         selectedPlayer && (
-        <div className="modal">
-          {selectedPlayer.avatar ? (
-            <img
-              src={selectedPlayer.avatar}
-              alt={selectedPlayer.username}
-              width={100}
-            />
-          ) : (
-            <img
-              src="./noavatar.gif" width={100}
-              alt="No Avatar"
-            />
-          )}
-          <h2 className="modal_playerName">
-            <span>{selectedPlayer.username}</span>
-          </h2>
-          {selectedPlayer.name ? (
-            <p>{selectedPlayer.name}</p>
-          ) : (
+          <div className="modal">
+            {selectedPlayer.avatar ? (
+              <img
+                src={selectedPlayer.avatar}
+                alt={selectedPlayer.username}
+                width={100}
+              />
+            ) : (
+              <img src="./noavatar.gif" width={100} alt="No Avatar" />
+            )}
+            <h2 className="modal_playerName">
+              <span>{selectedPlayer.username}</span>
+            </h2>
+            {selectedPlayer.name ? (
+              <p>{selectedPlayer.name}</p>
+            ) : (
+              <p>
+                <span>bhai name update kar chess[dot]com pe jaake</span>
+              </p>
+            )}
             <p>
-              <span>bhai name update kar chess[dot]com pe jaake</span>
+              League: <span>{selectedPlayer.league}</span>
             </p>
-          )}
-          <p>
-            League: <span>{selectedPlayer.league}</span>
-          </p>
-          <p>
-            Last Online: <span>{online(selectedPlayer.last_online)}</span>
-          </p>
-          <hr></hr>
-          <div className="chess_rating">
-            {selectedPlayer.blitz_rating ? (
-              <div className="rating">
-                <p className="rating">Blitz</p>
-                {<BsFillLightningFill color="#FEDD00" />}
-                <p className="rating">{selectedPlayer.blitz_rating}</p>
-              </div>
-            ) : (
-              <p className="no-rating">
-                Blitz Rating: <span>0</span>
-              </p>
-            )}
+            <p>
+              Last Online: <span>{online(selectedPlayer.last_online)}</span>
+            </p>
+            <hr></hr>
+            <div className="chess_rating">
+              {selectedPlayer.blitz_rating ? (
+                <div className="rating">
+                  <p className="rating">Blitz</p>
+                  {<BsFillLightningFill color="#FEDD00" />}
+                  <p className="rating">{selectedPlayer.blitz_rating}</p>
+                </div>
+              ) : (
+                <p className="no-rating">
+                  Blitz Rating: <span>0</span>
+                </p>
+              )}
 
-            {selectedPlayer.rapid_rating ? (
-              <div className="rating">
-                <p className="rating">Rapid</p>
-                {<MdOutlineTimer color="#6BF216" />}
-                <p className="rating">{selectedPlayer.rapid_rating}</p>
-              </div>
-            ) : (
-              <p className="no-rating">
-                Blitz Rating: <span>0</span>
-              </p>
-            )}
+              {selectedPlayer.rapid_rating ? (
+                <div className="rating">
+                  <p className="rating">Rapid</p>
+                  {<MdOutlineTimer color="#6BF216" />}
+                  <p className="rating">{selectedPlayer.rapid_rating}</p>
+                </div>
+              ) : (
+                <p className="no-rating">
+                  Blitz Rating: <span>0</span>
+                </p>
+              )}
 
-            {selectedPlayer.bullet_rating ? (
-              <div className="rating">
-                <p className="rating">Bullet</p>
-                {<GiBulletBill color="#F7F749" />}
-                <p className="rating">{selectedPlayer.bullet_rating}</p>
-              </div>
-            ) : (
-              <p className="no-rating">
-                Blitz Rating: <span>0</span>
-              </p>
-            )}
+              {selectedPlayer.bullet_rating ? (
+                <div className="rating">
+                  <p className="rating">Bullet</p>
+                  {<GiBulletBill color="#F7F749" />}
+                  <p className="rating">{selectedPlayer.bullet_rating}</p>
+                </div>
+              ) : (
+                <p className="no-rating">
+                  Blitz Rating: <span>0</span>
+                </p>
+              )}
 
-            <button
-              className="modal_close_button"
-              onClick={() => {
-                setSelectedPlayer(null);
-                setIsOpen(false);
-              }}
-            >
-              {<IoCloseSharp size={20} />}
-            </button>
+              <button
+                className="modal_close_button"
+                onClick={() => {
+                  setSelectedPlayer(null);
+                  setIsOpen(false);
+                }}
+              >
+                {<IoCloseSharp size={20} />}
+              </button>
+            </div>
           </div>
-        </div>
-      )
-      )
-      
-      }
-
-      
+        )
+      )}
     </>
   );
 }
