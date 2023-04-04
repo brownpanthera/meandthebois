@@ -3,7 +3,7 @@ import { IoCloseSharp } from "react-icons/io5";
 import { BsFillLightningFill } from "react-icons/bs";
 import { MdOutlineTimer } from "react-icons/md";
 import { GiBulletBill } from "react-icons/gi";
-import { BiLoaderCircle } from "react-icons/bi";
+// import { BiLoaderCircle } from "react-icons/bi";
 
 export default function ChessProfile() {
   // DATA state
@@ -141,7 +141,7 @@ export default function ChessProfile() {
       {/* MODAL */}
 
       {isLoading ? (
-        <div className="loader">{<BiLoaderCircle width={100} />}</div>
+        <div className="loader"></div>
       ) : (
         selectedPlayer && (
           <div className="modal">

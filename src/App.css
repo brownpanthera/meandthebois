@@ -3,6 +3,7 @@
 body {
   font-family: "Spectral";
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40"><rect x="0" y="0" width="40" height="40" stroke="white" stroke-opacity="0.1" stroke-width="0.935238" fill="black"></rect></svg>');
+  color: white;
 }
 
 .App {
@@ -12,6 +13,9 @@ body {
   align-items: center;
   background: #0000;
 }
+
+
+
 
 .headerName {
   position: absolute;
@@ -39,7 +43,7 @@ body {
   justify-content: flex-end;
 }
 
-.logo {
+.logo_chess {
   position: absolute;
   right: 10px;
   margin-bottom: 10px;
@@ -167,11 +171,42 @@ hr {
   grid-template-columns: auto auto auto auto;
 }
 
+.AppDrawer{
+  position: fixed;
+  top: 80%;
+  left: 32%;
+  border: 2px solid #1cbb1c;
+  border-radius: 50px;
+  width: 35%;
+  padding: .4%;
+}
+
+.chessDrawer{
+  display: inline-block;
+  /* border: 2px solid tomato; */
+  border-radius: 50%;
+  width: 50px;
+  padding: 5px;
+}
+
+img{
+  cursor: pointer;
+}
+
 @media (max-width: 767px) {
   .rating {
     width: 70px;
   }
   .modal {
     width: 80%;
+  }
+}
+
+@media (max-width: 767px) {
+  .AppDrawer{
+    display: inline;
+    left: 15%;
+    width: 70%;
+
   }
 }
