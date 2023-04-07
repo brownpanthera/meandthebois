@@ -4,7 +4,7 @@ import { FaPlay, FaPause } from 'react-icons/fa'
 
 function Audio() {
   const audioRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   function handlePlay() {
     audioRef.current.play();
@@ -18,7 +18,7 @@ function Audio() {
 
   return (
     <div>
-      <audio autoPlay loop ref={audioRef} src={bro} />
+      <audio ref={audioRef} src={bro} />
       {isPlaying ? (
         <button className='audio_button' onClick={handlePause}>{<FaPause />}</button>
       ) : (
