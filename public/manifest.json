@@ -1,9 +1,12 @@
 {
   "name": "Space",
   "short_name": "Space",
-  "start_url": "/index.html",
+  "start_url": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
+   "scope": "/",
+   "background_color": "white",
+  "theme_color": "#007bff",
   "icons": [
     {
       "src": "/icons/maskable_icon_x48.png",

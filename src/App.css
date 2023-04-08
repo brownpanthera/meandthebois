@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Spectral:wght@300&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&family=Spectral:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&family=Spectral:wght@300&display=swap");
 
 body {
   font-family: "Spectral";
@@ -15,18 +15,14 @@ body {
   background: #0000;
 }
 
-
-.heading{
+.heading {
   text-align: center;
-  font-family: 'Poppins';
-  font-size:xx-large;
+  font-family: "Poppins";
+  font-size: xx-large;
 }
-span{
+span {
   color: #1cbb1c;
 }
-
-
-
 
 .headerName {
   position: absolute;
@@ -190,7 +186,7 @@ hr {
   border: 2px solid #292828;
   border-radius: 50px;
   width: 30%;
-  padding: .1%;
+  padding: 0.1%;
 }
 
 .iconList {
@@ -251,9 +247,6 @@ hr {
   object-fit: contain;
 }
 
-
-
-
 @media (max-width: 767px) {
   .rating {
     width: 70px;
@@ -264,11 +257,10 @@ hr {
 }
 
 @media (max-width: 767px) {
-  .AppDrawer{
+  .AppDrawer {
     display: inline;
     left: 15%;
     width: 70%;
-
   }
 
   .photo-grid {
