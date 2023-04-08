@@ -1,8 +1,8 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css"
-import ChessProfile from "./Components/ChessProfile"
+import ChessProfile from "./Pages/ChessProfile"
 import Home from "./Pages/Home";
-import Gallery from "./Components/Gallery";
+import Gallery from "./Pages/Gallery";
 import Audio from "./Components/Audio";
 
 function App() {
@@ -11,14 +11,17 @@ function App() {
 
   return (
     <>
-     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/chess" element={<ChessProfile />} />
-      <Route path="/gallery" element={<Gallery />} />
-     </Routes>
-     {isHome && <Audio />}
+      {isHome && <h2 className="heading"><span>S</span>p<span>a</span>c<span>e</span></h2>}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/chess" element={<ChessProfile />} />
+        <Route path="/gallery" element={<Gallery />} />
+      </Routes>
+      {isHome && <Audio />}
+      <Home />
     </>
   );
 }
 
-export default App;
+
+export default App; 
