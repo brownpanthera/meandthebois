@@ -8,6 +8,11 @@
   "orientation": "portrait-primary",
   "icons": [
     {
+      "src": "/icons/maskable_icon_x48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
       "src": "/icons/maskable_icon_x72.png",
       "type": "image/png",
       "sizes": "72x72"
