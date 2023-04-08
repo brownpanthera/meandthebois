@@ -14,6 +14,7 @@ export default function Gallery() {
           <img className='images' src="/photos/bois1.jpg" alt='bois' onClick={handleClick} />
           <img className='images' src="/photos/bois2.jpg" alt='bois' onClick={handleClick} />
           <img className='images' src="/photos/bois3.jpg" alt='bois' onClick={handleClick} />
+          <img className='images' src="/photos/bois8.jpg" alt='bois' onClick={handleClick} />
           {/* <img src="/photos/bois4.jpg" alt='bois' onClick={handleClick} />
           <img src="/photos/bois5.jpg" alt='bois' onClick={handleClick} />
           <img src="/photos/bois6.jpg" alt='bois' onClick={handleClick} /> */}

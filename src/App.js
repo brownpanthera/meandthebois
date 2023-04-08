@@ -11,14 +11,14 @@ function App() {
 
   return (
     <>
-      {isHome && <h2 className="heading"><span>S</span>p<span>a</span>c<span>e</span></h2>}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/chess" element={<ChessProfile />} />
         <Route path="/gallery" element={<Gallery />} />
       </Routes>
-      {isHome && <Audio />}
       <Home />
+      {isHome && <h2 className="heading"><span>S</span>p<span>a</span>c<span>e</span></h2>}
+      {isHome && <Audio />}
     </>
   );
 }

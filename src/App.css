@@ -219,7 +219,7 @@ hr {
 
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 33.33%);
   gap: 10px;
 }
 
