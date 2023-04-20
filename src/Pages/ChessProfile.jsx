@@ -19,24 +19,30 @@ export default function ChessProfile() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const ali = "https://api.chess.com/pub/player/brownpanthera";
-    const ankit = "https://api.chess.com/pub/player/notsamayraiinaaa";
-    const avnish = "https://api.chess.com/pub/player/avnish0";
-    const dev = "https://api.chess.com/pub/player/angryskuii";
-    const deepanshu = "https://api.chess.com/pub/player/jaat54";
-    const shivam = "https://api.chess.com/pub/player/25dinmedouble";
-
-    Promise.all([
-      fetch(ali).then((response) => response.json()),
-      fetch(ankit).then((response) => response.json()),
-      fetch(avnish).then((response) => response.json()),
-      fetch(dev).then((response) => response.json()),
-      fetch(deepanshu).then((response) => response.json()),
-      fetch(shivam).then((response) => response.json()),
-    ]).then((data) => {
-      setPlayerData(data);
-    });
+    const playerUrls = [
+      "https://api.chess.com/pub/player/brownpanthera",
+      "https://api.chess.com/pub/player/notsamayraiinaaa",
+      "https://api.chess.com/pub/player/avnish0",
+      "https://api.chess.com/pub/player/angryskuii",
+      "https://api.chess.com/pub/player/jaat54",
+      "https://api.chess.com/pub/player/25dinmedouble"
+    ];
+  
+    let isMounted = true;
+    const fetchPlayerData = async () => {
+      const playerData = await Promise.allSettled(playerUrls.map(url => fetch(url).then(response => response.json())));
+      if (isMounted) {
+        setPlayerData(playerData.map(({ value }) => value));
+      }
+    };
+  
+    fetchPlayerData();
+  
+    return () => {
+      isMounted = false;
+    };
   }, []);
+  
 
   // REQ on 2 diff param, and getting the data
   function onClickingImage({
