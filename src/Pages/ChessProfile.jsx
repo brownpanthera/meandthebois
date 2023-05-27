@@ -26,7 +26,7 @@ export default function ChessProfile() {
       "https://api.chess.com/pub/player/angryskuii",
       "https://api.chess.com/pub/player/jaat54",
       "https://api.chess.com/pub/player/25dinmedouble",
-      "https://api.chess.com/pub/player/v00ni_7/stats"
+      "https://api.chess.com/pub/player/v00ni_7"
     ];
   
     const fetchPlayerData = async () => {
