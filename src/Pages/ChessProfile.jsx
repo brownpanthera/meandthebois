@@ -25,23 +25,23 @@ export default function ChessProfile() {
       "https://api.chess.com/pub/player/avnish0",
       "https://api.chess.com/pub/player/angryskuii",
       "https://api.chess.com/pub/player/jaat54",
-      "https://api.chess.com/pub/player/25dinmedouble"
+      "https://api.chess.com/pub/player/25dinmedouble",
+      "https://api.chess.com/pub/player/v00ni_7/stats"
     ];
   
-    let isMounted = true;
     const fetchPlayerData = async () => {
-      const playerData = await Promise.allSettled(playerUrls.map(url => fetch(url).then(response => response.json())));
-      if (isMounted) {
+      try {
+        const playerData = await Promise.allSettled(playerUrls.map(url => fetch(url).then(response => response.json())));
         setPlayerData(playerData.map(({ value }) => value));
+      } catch (error) {
+        // Handle the error, e.g., show an error message or perform any necessary actions
+        console.error("Error fetching player data:", error);
       }
     };
   
     fetchPlayerData();
-  
-    return () => {
-      isMounted = false;
-    };
   }, []);
+  
   
 
   // REQ on 2 diff param, and getting the data
