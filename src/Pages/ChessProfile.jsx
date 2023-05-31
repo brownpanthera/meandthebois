@@ -4,20 +4,13 @@ import { IoCloseSharp } from "react-icons/io5";
 import { BsFillLightningFill } from "react-icons/bs";
 import { MdOutlineTimer } from "react-icons/md";
 import { GiBulletBill } from "react-icons/gi";
-// import { BiLoaderCircle } from "react-icons/bi";
 
 export default function ChessProfile() {
-  // DATA state
   const [playerData, setPlayerData] = useState([]);
-
-  //MODAL state player basic detail
   const [selectedPlayer, setSelectedPlayer] = useState(null);
-
-  //MODAL BACKDROP
   const [isOpen, setIsOpen] = useState(false);
-
-  //LODER
   const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingRatings, setIsLoadingRatings] = useState(false);
 
   useEffect(() => {
     const playerUrls = [
@@ -27,25 +20,26 @@ export default function ChessProfile() {
       "https://api.chess.com/pub/player/angryskuii",
       "https://api.chess.com/pub/player/jaat54",
       "https://api.chess.com/pub/player/25dinmedouble",
-      "https://api.chess.com/pub/player/v00ni_7"
+      "https://api.chess.com/pub/player/v00ni_7",
     ];
-  
+
     const fetchPlayerData = async () => {
       try {
-        const playerData = await Promise.allSettled(playerUrls.map(url => fetch(url).then(response => response.json())));
+        const playerData = await Promise.allSettled(
+          playerUrls.map((url) =>
+            fetch(url).then((response) => response.json())
+          )
+        );
         setPlayerData(playerData.map(({ value }) => value));
+        setIsLoading(false);
       } catch (error) {
-        // Handle the error, e.g., show an error message or perform any necessary actions
         console.error("Error fetching player data:", error);
       }
     };
-  
+
     fetchPlayerData();
   }, []);
-  
-  
 
-  // REQ on 2 diff param, and getting the data
   function onClickingImage({
     avatar,
     name,
@@ -54,11 +48,10 @@ export default function ChessProfile() {
     league,
     player_id,
   }) {
-    setIsLoading(true);
+    setIsLoadingRatings(true);
     fetch(`https://api.chess.com/pub/player/${username}/stats`)
       .then((response) => response.json())
       .then((data) => {
-        // added the rating data to the selectedPlayer state
         setSelectedPlayer({
           name,
           username,
@@ -71,7 +64,13 @@ export default function ChessProfile() {
           avatar: avatar,
         });
         setIsOpen(true);
+        setIsLoadingRatings(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching player ratings:", error);
+        setIsLoadingRatings(false);
       });
+
     setSelectedPlayer({
       avatar,
       name,
@@ -81,10 +80,8 @@ export default function ChessProfile() {
       player_id,
     });
     setIsOpen(true);
-    setIsLoading(false);
   }
 
-  // Function for Last Online [INDIAN STANDARD TIME]
   function online(last_online) {
     const date = new Date(last_online * 1000);
     const actual_date = date.toLocaleString("en-US", {
@@ -97,7 +94,6 @@ export default function ChessProfile() {
 
   return (
     <>
-      {/* CIRCULAR AVATARS */}
       <div
         className={`avatar-container ${
           isOpen ? "avatar-container--hidden" : ""
@@ -145,10 +141,8 @@ export default function ChessProfile() {
         )}
       </div>
 
-      {/* MODAL */}
-
       {isLoading ? (
-        <div className="loader"></div>
+        <div className="outerLoader"><img className="cat" src="loader.gif"/></div>
       ) : (
         selectedPlayer && (
           <div className="modal">
@@ -178,53 +172,56 @@ export default function ChessProfile() {
               Last Online: <span>{online(selectedPlayer.last_online)}</span>
             </p>
             <hr></hr>
-            <div className="chess_rating">
-              {selectedPlayer.blitz_rating ? (
-                <div className="rating">
-                  <p className="rating">Blitz</p>
-                  {<BsFillLightningFill color="#FEDD00" />}
-                  <p className="rating">{selectedPlayer.blitz_rating}</p>
-                </div>
-              ) : (
-                <p className="no-rating">
-                  Blitz Rating: <span>0</span>
-                </p>
-              )}
+            {isLoadingRatings ? (
+              <div className="catloader"><img src="/loader.gif"/></div>
+            ) : (
+              <div className="chess_rating">
+                {selectedPlayer.blitz_rating ? (
+                  <div className="rating">
+                    <p className="rating">Blitz</p>
+                    <BsFillLightningFill color="#FEDD00" />
+                    <p className="rating">{selectedPlayer.blitz_rating}</p>
+                  </div>
+                ) : (
+                  <p className="no-rating">
+                    Blitz Rating: <span>0</span>
+                  </p>
+                )}
 
-              {selectedPlayer.rapid_rating ? (
-                <div className="rating">
-                  <p className="rating">Rapid</p>
-                  {<MdOutlineTimer color="#6BF216" />}
-                  <p className="rating">{selectedPlayer.rapid_rating}</p>
-                </div>
-              ) : (
-                <p className="no-rating">
-                  Blitz Rating: <span>0</span>
-                </p>
-              )}
+                {selectedPlayer.rapid_rating ? (
+                  <div className="rating">
+                    <p className="rating">Rapid</p>
+                    <MdOutlineTimer color="#6BF216" />
+                    <p className="rating">{selectedPlayer.rapid_rating}</p>
+                  </div>
+                ) : (
+                  <p className="no-rating">
+                    Rapid Rating: <span>0</span>
+                  </p>
+                )}
 
-              {selectedPlayer.bullet_rating ? (
-                <div className="rating">
-                  <p className="rating">Bullet</p>
-                  {<GiBulletBill color="#F7F749" />}
-                  <p className="rating">{selectedPlayer.bullet_rating}</p>
-                </div>
-              ) : (
-                <p className="no-rating">
-                  Blitz Rating: <span>0</span>
-                </p>
-              )}
-
-              <button
-                className="modal_close_button"
-                onClick={() => {
-                  setSelectedPlayer(null);
-                  setIsOpen(false);
-                }}
-              >
-                {<IoCloseSharp size={20} />}
-              </button>
-            </div>
+                {selectedPlayer.bullet_rating ? (
+                  <div className="rating">
+                    <p className="rating">Bullet</p>
+                    <GiBulletBill color="#F7F749" />
+                    <p className="rating">{selectedPlayer.bullet_rating}</p>
+                  </div>
+                ) : (
+                  <p className="no-rating">
+                    Bullet Rating: <span>0</span>
+                  </p>
+                )}
+              </div>
+            )}
+            <button
+              className="modal_close_button"
+              onClick={() => {
+                setSelectedPlayer(null);
+                setIsOpen(false);
+              }}
+            >
+              <IoCloseSharp size={30} />
+            </button>
           </div>
         )
       )}

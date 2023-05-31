@@ -64,7 +64,6 @@ h2 {
   font-family: monospace;
 }
 
-/* CHESS PROFILE AVATARS */
 .avatar {
   border-style: none;
   position: absolute;
@@ -82,31 +81,33 @@ h2 {
 }
 
 .avatar:nth-child(3) {
-  transform: rotate(120deg) translate(100px) rotate(-120deg) translate(-50%, -50%);
+  transform: rotate(120deg) translate(100px) rotate(-120deg)
+    translate(-50%, -50%);
 }
 
 .avatar:nth-child(4) {
-  transform: rotate(180deg) translate(100px) rotate(-180deg) translate(-50%, -50%);
+  transform: rotate(180deg) translate(100px) rotate(-180deg)
+    translate(-50%, -50%);
 }
 
 .avatar:nth-child(5) {
-  transform: rotate(240deg) translate(100px) rotate(-240deg) translate(-50%, -50%);
+  transform: rotate(240deg) translate(100px) rotate(-240deg)
+    translate(-50%, -50%);
 }
 
 .avatar:nth-child(6) {
-  transform: rotate(300deg) translate(100px) rotate(-300deg) translate(-50%, -50%);
+  transform: rotate(300deg) translate(100px) rotate(-300deg)
+    translate(-50%, -50%);
 }
 
 .avatar:nth-child(7) {
-  transform: rotate(360deg) translate(100px) rotate(-360deg) translate(-50%, -50%);
+  transform: rotate(360deg) translate(100px) rotate(-360deg)
+    translate(-50%, -50%);
 }
 
-<<<<<<< HEAD
-=======
 .avatar:not(:last-child) {
   margin-right: 20px;
 }
->>>>>>> master
 
 .avatar img {
   border-radius: 50%;
@@ -118,6 +119,26 @@ h2 {
   cursor: pointer;
   border: none;
   background: transparent;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.modal_close_button:hover {
+  color: #0f810f;
+}
+
+.cat {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.outerLoader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 /* MODAL CARD */
