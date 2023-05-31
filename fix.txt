@@ -1,0 +1,2 @@
+1) fix chess profile page load:
+2) ----
