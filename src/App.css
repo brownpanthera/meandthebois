@@ -101,6 +101,12 @@ h2 {
   transform: rotate(360deg) translate(100px) rotate(-360deg) translate(-50%, -50%);
 }
 
+<<<<<<< HEAD
+=======
+.avatar:not(:last-child) {
+  margin-right: 20px;
+}
+>>>>>>> master
 
 .avatar img {
   border-radius: 50%;
