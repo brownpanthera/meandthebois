@@ -142,7 +142,7 @@ export default function ChessProfile() {
       </div>
 
       {isLoading ? (
-        <div className="outerLoader"><img className="cat" src="loader.gif"/></div>
+        <div className="outerLoader"><img className="cat" src="pica.gif"/></div>
       ) : (
         selectedPlayer && (
           <div className="modal">
@@ -173,7 +173,7 @@ export default function ChessProfile() {
             </p>
             <hr></hr>
             {isLoadingRatings ? (
-              <div className="catloader"><img src="/loader.gif"/></div>
+              <div className="catloader"><img src="/pica.gif" width={100} /></div>
             ) : (
               <div className="chess_rating">
                 {selectedPlayer.blitz_rating ? (
