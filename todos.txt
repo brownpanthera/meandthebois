@@ -1,2 +1,4 @@
-1) fix deployment on /chess
-2) fix chess profile page load 
+Fixes
+1) load all avatars at once.
+
+
