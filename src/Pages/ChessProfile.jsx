@@ -99,50 +99,58 @@ export default function ChessProfile() {
           isOpen ? "avatar-container--hidden" : ""
         }`}
       >
-        {playerData.map(
-          ({ name, username, avatar, last_online, league, player_id }) => (
-            <div key={player_id} className="avatar">
-              {avatar ? (
-                <img
-                  onClick={() =>
-                    onClickingImage({
-                      name,
-                      username,
-                      last_online,
-                      league,
-                      player_id,
-                      avatar,
-                    })
-                  }
-                  src={avatar}
-                  alt={username}
-                  width={100}
-                  height={100}
-                />
-              ) : (
-                <img
-                  onClick={() =>
-                    onClickingImage({
-                      name,
-                      username,
-                      last_online,
-                      league,
-                      player_id,
-                      avatar,
-                    })
-                  }
-                  src="./noavatar.gif"
-                  width={100}
-                  alt={username}
-                />
-              )}
-            </div>
-          )
+        {playerData.map((player) => {
+  if (player) {
+    const { name, username, avatar, last_online, league, player_id } = player;
+    return (
+      <div key={player_id} className="avatar">
+        {avatar ? (
+          <img
+            onClick={() =>
+              onClickingImage({
+                name,
+                username,
+                last_online,
+                league,
+                player_id,
+                avatar,
+              })
+            }
+            src={avatar}
+            alt={username}
+            width={100}
+            height={100}
+          />
+        ) : (
+          <img
+            onClick={() =>
+              onClickingImage({
+                name,
+                username,
+                last_online,
+                league,
+                player_id,
+                avatar,
+              })
+            }
+            src="./noavatar.gif"
+            width={100}
+            alt={username}
+          />
         )}
+      </div>
+    );
+  } else {
+    return null; // or a placeholder element
+  }
+})}
+
       </div>
 
       {isLoading ? (
-        <div className="outerLoader"><img className="cat" src="pica.gif"/></div>
+        <div className="outerLoader">
+          <img className="cat" src="pica.gif" />
+        </div>
       ) : (
         selectedPlayer && (
           <div className="modal">
@@ -173,7 +181,9 @@ export default function ChessProfile() {
             </p>
             <hr></hr>
             {isLoadingRatings ? (
-              <div className="catloader"><img src="/pica.gif" width={100} /></div>
+              <div className="catloader">
+                <img src="/pica.gif" width={100} />
+              </div>
             ) : (
               <div className="chess_rating">
                 {selectedPlayer.blitz_rating ? (
