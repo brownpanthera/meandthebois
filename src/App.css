@@ -132,6 +132,9 @@ h2 {
   width: 200px;
 }
 
+.innercat{
+  width: 100px;
+}
 .outerLoader {
   display: flex;
   align-items: center;
