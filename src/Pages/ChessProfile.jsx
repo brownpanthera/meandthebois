@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { ChessDataContext } from '../ChessDataContext';
 import { useState, useEffect } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import { BsFillLightningFill } from "react-icons/bs";
@@ -5,12 +7,20 @@ import { MdOutlineTimer } from "react-icons/md";
 import { GiBulletBill } from "react-icons/gi";
 
 export default function ChessProfile() {
-  const [playerData, setPlayerData] = useState([]);
-  const [selectedPlayer, setSelectedPlayer] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
-  const [isLoadingRatings, setIsLoadingRatings] = useState(false);
-  const [allAvatarsLoaded, setAllAvatarsLoaded] = useState(false);
-  const [isLoadingAvatars, setIsLoadingAvatars] = useState(true); // New state variable for loading avatars
+  const {
+    playerData,
+    setPlayerData,
+    selectedPlayer,
+    setSelectedPlayer,
+    isOpen,
+    setIsOpen,
+    isLoadingRatings,
+    setIsLoadingRatings,
+    allAvatarsLoaded,
+    setAllAvatarsLoaded,
+    isLoadingAvatars,
+    setIsLoadingAvatars,
+  } = useContext(ChessDataContext);
 
   useEffect(() => {
     const playerUrls = [

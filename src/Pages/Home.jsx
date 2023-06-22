@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { SiLichess } from "react-icons/si";
 import { FcGallery } from "react-icons/fc";
 import { GoHome } from "react-icons/go";
+import { MdLeaderboard } from "react-icons/md"
 
 export default function Home() {
   return (
@@ -15,6 +16,11 @@ export default function Home() {
         <li>
           <Link to="/chess">
             <SiLichess className="chess-icon" color="white" size={18} />
+          </Link>
+        </li>
+        <li>
+          <Link to="/leaderboard">
+            <MdLeaderboard style={{color: "white"}} size={18} />
           </Link>
         </li>
         <li>

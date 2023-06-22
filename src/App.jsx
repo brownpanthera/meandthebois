@@ -4,6 +4,8 @@ import ChessProfile from "./Pages/ChessProfile";
 import Home from "./Pages/Home";
 import Gallery from "./Pages/Gallery";
 import Audio from "./Components/Audio";
+import Leaderboard from "./Pages/Leaderboard";
+import { ChessDataProvider } from './ChessDataContext';
 
 function App() {
   const location = useLocation();
@@ -20,11 +22,14 @@ function App() {
         </>
       )}
       <Home />
+      <ChessDataProvider>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/chess" element={<ChessProfile />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/leaderboard" element={<Leaderboard />} />
       </Routes>
+      </ChessDataProvider>
     </>
   );
 }
