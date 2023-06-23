@@ -14,6 +14,28 @@ export function ChessDataProvider({ children }) {
     setPlayerData(updatedPlayerData);
   };
 
+  const fetchPlayerStats = (username) => {
+    setIsLoadingRatings(true); // Set loading status to true
+
+    return fetch(`https://api.chess.com/pub/player/${username}/stats`)
+      .then((response) => response.json())
+      .then((data) => {
+        setSelectedPlayer((prevSelectedPlayer) => ({
+          ...prevSelectedPlayer,
+          rapid_rating: data.chess_rapid.last.rating,
+          blitz_rating: data.chess_blitz.last.rating,
+          bullet_rating: data.chess_bullet.last.rating,
+        }));
+        setIsOpen(true);
+      })
+      .catch((error) => {
+        console.error("Error fetching player ratings:", error);
+      })
+      .finally(() => {
+        setIsLoadingRatings(false); // Set loading status to false
+      });
+  };
+
   return (
     <ChessDataContext.Provider
       value={{
@@ -29,7 +51,8 @@ export function ChessDataProvider({ children }) {
         isLoadingAvatars,
         setIsLoadingAvatars,
         isLoadingRatings,
-        setIsLoadingRatings
+        setIsLoadingRatings,
+        fetchPlayerStats,
       }}
     >
       {children}
