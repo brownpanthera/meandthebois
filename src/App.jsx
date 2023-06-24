@@ -6,6 +6,7 @@ import Gallery from "./Pages/Gallery";
 import Audio from "./Components/Audio";
 import Leaderboard from "./Pages/Leaderboard";
 import { ChessDataProvider } from './ChessDataContext';
+import Upload from "./Pages/Upload";
 
 function App() {
   const location = useLocation();
@@ -28,6 +29,7 @@ function App() {
         <Route path="/chess" element={<ChessProfile />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="/upload" element={<Upload />} />
       </Routes>
       </ChessDataProvider>
     </>
