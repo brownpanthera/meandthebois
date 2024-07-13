@@ -13,13 +13,13 @@ const Leaderboard = () => {
     Blitz: "",
     Bullet: "",
   });
-
   const players = [
     "brownpanthera",
     "notsamayraiinaaa",
     "angryskuii",
     "avnish0",
     "v00ni_7",
+    "jbze",
   ];
 
   useEffect(() => {
@@ -39,15 +39,13 @@ const Leaderboard = () => {
             };
           }),
         );
-
         const sortedData = {
-          Rapid: playerData.sort((a, b) => b.rapid - a.rapid),
-          Blitz: playerData.sort((a, b) => b.blitz - a.blitz),
-          Bullet: playerData.sort((a, b) => b.bullet - a.bullet),
+          Rapid: [...playerData].sort((a, b) => b.rapid - a.rapid),
+          Blitz: [...playerData].sort((a, b) => b.blitz - a.blitz),
+          Bullet: [...playerData].sort((a, b) => b.bullet - a.bullet),
         };
-
+        console.log(sortedData);
         setLeaderboard(sortedData);
-
         // Fetch avatars for top players
         const topAvatars = await Promise.all(
           Object.entries(sortedData).map(async ([type, players]) => {
@@ -59,7 +57,6 @@ const Leaderboard = () => {
             return [type, data.avatar];
           }),
         );
-
         setAvatars(Object.fromEntries(topAvatars));
         setIsLoading(false);
       } catch (error) {
@@ -67,7 +64,6 @@ const Leaderboard = () => {
         setIsLoading(false);
       }
     };
-
     fetchPlayerData();
   }, []);
 
@@ -83,11 +79,19 @@ const Leaderboard = () => {
     <div className="container">
       <div className="leaderboard-card">
         <h1 className="leaderboard-title">Leaderboard</h1>
-        <img
-          className="top-avatar"
-          src={avatars[selectedType]}
-          alt={`Top ${selectedType} player`}
-        />
+        {avatars[selectedType] ? (
+          <img
+            className="top-avatar"
+            src={avatars[selectedType]}
+            alt={`Top ${selectedType} player`}
+          />
+        ) : (
+          <img
+            className="top-avatar"
+            src="/noavatar.gif"
+            alt="Placeholder avatar"
+          />
+        )}
         <nav className="nav">
           <ul className="nav-list">
             {Object.keys(leaderboard).map((type) => (
