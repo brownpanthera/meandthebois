@@ -421,3 +421,16 @@ hr {
         padding-top: 2rem;
     }
 }
+.player-cell {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.player-cell span {
+    margin-right: 10px;
+}
+
+.crown-icon {
+    color: gold;
+}

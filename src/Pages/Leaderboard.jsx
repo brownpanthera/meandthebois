@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { GiCrown } from "react-icons/gi";
 
 const Leaderboard = () => {
   const [selectedType, setSelectedType] = useState("Rapid");
@@ -88,7 +89,7 @@ const Leaderboard = () => {
         ) : (
           <img
             className="top-avatar"
-            src="/noavatar.gif"
+            src="noavatar.gif"
             alt="Placeholder avatar"
           />
         )}
@@ -120,7 +121,10 @@ const Leaderboard = () => {
             {leaderboard[selectedType].map((player, index) => (
               <tr key={player.player}>
                 <td>{index + 1}</td>
-                <td>{player.player}</td>
+                <td className="player-cell">
+                  <span>{player.player}</span>
+                  {index === 0 && <GiCrown className="crown-icon" size={30} />}
+                </td>
                 <td>{player[selectedType.toLowerCase()]}</td>
               </tr>
             ))}
