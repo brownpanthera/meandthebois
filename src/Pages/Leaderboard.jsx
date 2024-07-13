@@ -1,40 +1,130 @@
-import { useContext, useState, useEffect } from 'react';
-import { ChessDataContext } from '../ChessDataContext';
+import { useState, useEffect } from "react";
 
-export default function Leaderboard() {
-  const { playerData, fetchPlayerStats } = useContext(ChessDataContext);
-  console.log(fetchPlayerStats);
-  const BS = "01100011 01101111 01101101 01101001 01101110 01100111 00100000 01110011 01101111 01101111 01101110 00101110";
-  const [binaryChars, setBinaryChars] = useState([]);
+const Leaderboard = () => {
+  const [selectedType, setSelectedType] = useState("Rapid");
+  const [isLoading, setIsLoading] = useState(true);
+  const [leaderboard, setLeaderboard] = useState({
+    Rapid: [],
+    Blitz: [],
+    Bullet: [],
+  });
+  const [avatars, setAvatars] = useState({
+    Rapid: "",
+    Blitz: "",
+    Bullet: "",
+  });
+
+  const players = [
+    "brownpanthera",
+    "notsamayraiinaaa",
+    "angryskuii",
+    "avnish0",
+    "v00ni_7",
+  ];
 
   useEffect(() => {
-    const chars = BS.split('');
-    let index = 0;
-    const timer = setInterval(() => {
-      if (index >= chars.length) {
-        clearInterval(timer);
-      } else {
-        setBinaryChars(prevChars => [...prevChars, chars[index]]);
-        index++;
-      }
-    }, 100);
+    const fetchPlayerData = async () => {
+      try {
+        const playerData = await Promise.all(
+          players.map(async (player) => {
+            const response = await fetch(
+              `https://api.chess.com/pub/player/${player}/stats`,
+            );
+            const data = await response.json();
+            return {
+              player,
+              rapid: data.chess_rapid?.last?.rating || 0,
+              blitz: data.chess_blitz?.last?.rating || 0,
+              bullet: data.chess_bullet?.last?.rating || 0,
+            };
+          }),
+        );
 
-    return () => clearInterval(timer);
+        const sortedData = {
+          Rapid: playerData.sort((a, b) => b.rapid - a.rapid),
+          Blitz: playerData.sort((a, b) => b.blitz - a.blitz),
+          Bullet: playerData.sort((a, b) => b.bullet - a.bullet),
+        };
+
+        setLeaderboard(sortedData);
+
+        // Fetch avatars for top players
+        const topAvatars = await Promise.all(
+          Object.entries(sortedData).map(async ([type, players]) => {
+            const topPlayer = players[0].player;
+            const response = await fetch(
+              `https://api.chess.com/pub/player/${topPlayer}`,
+            );
+            const data = await response.json();
+            return [type, data.avatar];
+          }),
+        );
+
+        setAvatars(Object.fromEntries(topAvatars));
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchPlayerData();
   }, []);
 
+  if (isLoading) {
+    return (
+      <div className="outerLoader">
+        <img className="cat" src="pica.gif" alt="Loading..." />
+      </div>
+    );
+  }
+
   return (
-    <div style={{ textAlign: 'center' }}>
-      <h2 style={{ color: 'green', animation: 'reveal 1s linear' }}>
-        {binaryChars.join('')}
-      </h2>
-      <style>
-        {`
-          @keyframes reveal {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-          }
-        `}
-      </style>
+    <div className="container">
+      <div className="leaderboard-card">
+        <h1 className="leaderboard-title">Leaderboard</h1>
+        <img
+          className="top-avatar"
+          src={avatars[selectedType]}
+          alt={`Top ${selectedType} player`}
+        />
+        <nav className="nav">
+          <ul className="nav-list">
+            {Object.keys(leaderboard).map((type) => (
+              <li key={type} className="nav-item">
+                <button
+                  onClick={() => setSelectedType(type)}
+                  className={`nav-button ${
+                    selectedType === type ? "active" : ""
+                  }`}
+                >
+                  {type}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <table className="leaderboard-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Player</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            {leaderboard[selectedType].map((player, index) => (
+              <tr key={player.player}>
+                <td>{index + 1}</td>
+                <td>{player.player}</td>
+                <td>{player[selectedType.toLowerCase()]}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
-}
+};
+
+export default Leaderboard;

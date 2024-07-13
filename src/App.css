@@ -2,144 +2,145 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&family=Spectral:wght@300&display=swap");
 
 body {
-  font-family: "Spectral";
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40"><rect x="0" y="0" width="40" height="40" stroke="white" stroke-opacity="0.1" stroke-width="0.935238" fill="black"></rect></svg>');
-  color: white;
+    font-family: "Spectral";
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40"><rect x="0" y="0" width="40" height="40" stroke="white" stroke-opacity="0.1" stroke-width="0.935238" fill="black"></rect></svg>');
+    color: white;
 }
 
 .App {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #0000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #0000;
 }
 
 .heading {
-  text-align: center;
-  font-family: "Poppins";
-  font-size: xx-large;
+    text-align: center;
+    font-family: "Poppins";
+    font-size: xx-large;
 }
 span {
-  color: #1cbb1c;
+    color: #1cbb1c;
 }
 
 .headerName {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.5rem;
-  line-height: 0.2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    line-height: 0.2rem;
 }
 
 .audio_button {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  margin-bottom: 10px;
-  margin-right: 10px;
-  border: none;
-  background: none;
-  color: #ffff;
-  cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    border: none;
+    background: none;
+    color: #ffff;
+    cursor: pointer;
 }
 
 .header {
-  display: flex;
-  justify-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .logo_chess {
-  position: absolute;
-  right: 10px;
-  margin-bottom: 10px;
-  margin-right: 10px;
-  width: 3%;
-  cursor: pointer;
+    position: absolute;
+    right: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    width: 3%;
+    cursor: pointer;
 }
 
 h2 {
-  color: white;
-  font-family: monospace;
+    color: white;
+    font-family: monospace;
 }
 
 .avatar {
-  border-style: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #ffff;
-  transform: translate(-50%, -50%);
+    border-style: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ffff;
+    transform: translate(-50%, -50%);
 }
 
 .avatar:nth-child(2) {
-  transform: rotate(60deg) translate(100px) rotate(-60deg) translate(-50%, -50%);
+    transform: rotate(60deg) translate(100px) rotate(-60deg)
+        translate(-50%, -50%);
 }
 
 .avatar:nth-child(3) {
-  transform: rotate(120deg) translate(100px) rotate(-120deg)
-    translate(-50%, -50%);
+    transform: rotate(120deg) translate(100px) rotate(-120deg)
+        translate(-50%, -50%);
 }
 
 .avatar:nth-child(4) {
-  transform: rotate(180deg) translate(100px) rotate(-180deg)
-    translate(-50%, -50%);
+    transform: rotate(180deg) translate(100px) rotate(-180deg)
+        translate(-50%, -50%);
 }
 
 .avatar:nth-child(5) {
-  transform: rotate(240deg) translate(100px) rotate(-240deg)
-    translate(-50%, -50%);
+    transform: rotate(240deg) translate(100px) rotate(-240deg)
+        translate(-50%, -50%);
 }
 
 .avatar:nth-child(6) {
-  transform: rotate(300deg) translate(100px) rotate(-300deg)
-    translate(-50%, -50%);
+    transform: rotate(300deg) translate(100px) rotate(-300deg)
+        translate(-50%, -50%);
 }
 
 .avatar:nth-child(7) {
-  transform: rotate(360deg) translate(100px) rotate(-360deg)
-    translate(-50%, -50%);
+    transform: rotate(360deg) translate(100px) rotate(-360deg)
+        translate(-50%, -50%);
 }
 
 .avatar:not(:last-child) {
-  margin-right: 20px;
+    margin-right: 20px;
 }
 
 .avatar img {
-  border-radius: 50%;
-  cursor: pointer;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .modal_close_button {
-  color: #1cbb1c;
-  cursor: pointer;
-  border: none;
-  background: transparent;
-  position: absolute;
-  top: 10px;
-  right: 10px;
+    color: #1cbb1c;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
 .modal_close_button:hover {
-  color: #0f810f;
+    color: #0f810f;
 }
 
 .cat {
-  width: 200px;
+    width: 200px;
 }
 
-.innercat{
-  width: 100px;
+.innercat {
+    width: 100px;
 }
 .outerLoader {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 /* MODAL CARD */
@@ -162,149 +163,261 @@ h2 {
 } */
 
 .modal {
-  width: 50%;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #4b0a0a;
-  padding: 20px;
-  border-radius: 5px;
+    width: 50%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #4b0a0a;
+    padding: 20px;
+    border-radius: 5px;
 }
 
 .avatar-container--hidden {
-  display: none;
+    display: none;
 }
 
 span {
-  color: #1cbb1c;
+    color: #1cbb1c;
 }
 
 p {
-  font-size: medium;
-  color: white;
-  font-family: monospace;
+    font-size: medium;
+    color: white;
+    font-family: monospace;
 }
 
 img {
-  -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
 }
 
 hr {
-  border-color: #1cbb1c;
+    border-color: #1cbb1c;
 }
 
 .rating {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  color: white;
-  background-color: #202020;
-  border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    color: white;
+    background-color: #202020;
+    border-radius: 10px;
 }
 
 .chess_rating {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
 }
 
 .AppDrawer {
-  background-color: #292828;
-  position: fixed;
-  top: 87%;
-  left: 35%;
-  border: 2px solid #292828;
-  border-radius: 50px;
-  width: 30%;
-  padding: 0.1%;
+    background-color: #292828;
+    position: fixed;
+    top: 87%;
+    left: 35%;
+    border: 2px solid #292828;
+    border-radius: 50px;
+    width: 30%;
+    padding: 0.1%;
 }
 
 .iconList {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .iconList li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  border: 2px solid black;
-  background-color: #000000;
-  margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid black;
+    background-color: #000000;
+    margin: 5px;
 }
 
 .iconList svg {
-  display: block;
-  margin: auto;
+    display: block;
+    margin: auto;
 }
 
 .photo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 33.33%);
-  gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 33.33%);
+    gap: 10px;
 }
 
 .images {
-  max-width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border: 2px solid black;
-  border-radius: 10px;
-  cursor: pointer;
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 2px solid black;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000000b3;
-  backdrop-filter: blur(5px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000b3;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .overlay img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 @media (max-width: 767px) {
-  .rating {
-    width: 70px;
-  }
-  .modal {
-    width: 80%;
-  }
+    .rating {
+        width: 70px;
+    }
+    .modal {
+        width: 80%;
+    }
 }
 
 @media (max-width: 767px) {
-  .AppDrawer {
-    display: inline;
-    left: 15%;
-    width: 70%;
-  }
+    .AppDrawer {
+        display: inline;
+        left: 15%;
+        width: 70%;
+    }
 
-  .photo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
-  }
+    .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 10px;
+    }
 
-  .AppDrawer {
-    position: fixed;
-    top: auto;
-    bottom: 2%;
-    z-index: 9999;
-  }
+    .AppDrawer {
+        position: fixed;
+        top: auto;
+        bottom: 2%;
+        z-index: 9999;
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+}
+.leaderboard-card {
+    font-family: monospace;
+    background-color: #4b0a0a;
+    color: #1cbb1c;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    width: 100%;
+    max-width: 600px;
+}
+.leaderboard-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.nav {
+    margin-bottom: 1rem;
+}
+.nav-list {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.nav-item {
+    margin-right: 0.5rem;
+}
+.nav-button {
+    font-family: monospace;
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+}
+.nav-button:hover {
+    background-color: #4b5563;
+}
+.nav-button.active {
+    background-color: #4b5563;
+}
+.leaderboard-table {
+    font-family: monospace;
+    width: 100%;
+    border-collapse: collapse;
+}
+.leaderboard-table th,
+.leaderboard-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #374151;
+}
+.leaderboard-table th {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: #9ca3af;
+}
+
+.top-avatar {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 15vw;
+    max-width: 100px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #4caf50;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .top-avatar {
+        width: 20vw;
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-avatar {
+        width: 25vw;
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+}
+
+/* Ensure the leaderboard card has a minimum height */
+.leaderboard-card {
+    min-height: 300px;
+    position: relative;
+    padding-top: calc(15vw + 2rem);
+}
+
+@media (min-width: 669px) {
+    .leaderboard-card {
+        padding-top: 2rem;
+    }
 }

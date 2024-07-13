@@ -1,5 +1,5 @@
-import { useContext } from 'react';
-import { ChessDataContext } from '../ChessDataContext';
+import { useContext } from "react";
+import { ChessDataContext } from "../ChessDataContext";
 import { useState, useEffect } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import { BsFillLightningFill } from "react-icons/bs";
@@ -19,9 +19,8 @@ export default function ChessProfile() {
     isLoadingAvatars,
     setIsLoadingAvatars,
     isLoadingRatings,
-    setIsLoadingRatings
+    setIsLoadingRatings,
   } = useContext(ChessDataContext);
-
 
   useEffect(() => {
     const playerUrls = [
@@ -40,8 +39,8 @@ export default function ChessProfile() {
 
         const playerData = await Promise.allSettled(
           playerUrls.map((url) =>
-            fetch(url).then((response) => response.json())
-          )
+            fetch(url).then((response) => response.json()),
+          ),
         );
         setPlayerData(playerData.map(({ value }) => value));
         setAllAvatarsLoaded(true); // Set all avatars loaded
@@ -98,10 +97,12 @@ export default function ChessProfile() {
     });
     setIsOpen(true);
   }
-
   function online(last_online) {
     const date = new Date(last_online * 1000);
     const actual_date = date.toLocaleString("en-US", {
+      day: "numeric",
+      month: "numeric",
+      year: "numeric",
       hour: "numeric",
       minute: "numeric",
       hour12: true,
@@ -124,8 +125,14 @@ export default function ChessProfile() {
           {allAvatarsLoaded &&
             playerData.map((player) => {
               if (player) {
-                const { name, username, avatar, last_online, league, player_id } =
-                  player;
+                const {
+                  name,
+                  username,
+                  avatar,
+                  last_online,
+                  league,
+                  player_id,
+                } = player;
                 return (
                   <div key={player.player_id} className="avatar">
                     {avatar ? (
@@ -189,7 +196,7 @@ export default function ChessProfile() {
             <p>{selectedPlayer.name}</p>
           ) : (
             <p>
-              <span>bhai name update kar chess[dot]com pe jaake</span>
+              <span>batman</span>
             </p>
           )}
           <p>
@@ -202,9 +209,7 @@ export default function ChessProfile() {
 
           <div className="chess_rating">
             {isLoadingRatings ? (
-             
-                <img className="innercat" src="pica.gif" />
-            
+              <img className="innercat" src="pica.gif" />
             ) : (
               <>
                 {selectedPlayer.blitz_rating ? (

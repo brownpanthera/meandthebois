@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useState } from "react";
 
 export const ChessDataContext = createContext();
 
@@ -35,7 +35,6 @@ export function ChessDataProvider({ children }) {
         setIsLoadingRatings(false); // Set loading status to false
       });
   };
-
   return (
     <ChessDataContext.Provider
       value={{

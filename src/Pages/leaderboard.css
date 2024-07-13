@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Spectral:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&family=Spectral:wght@300&display=swap");
+
+body {
+    font-family: "Spectral";
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40"><rect x="0" y="0" width="40" height="40" stroke="white" stroke-opacity="0.1" stroke-width="0.935238" fill="black"></rect></svg>');
+    color: black;
+    background: #0000;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f3f4f6;
+}
+
+.nav {
+    background-color: #1f2937;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.nav-list {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    margin: 0 0.75rem;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.15s ease-in-out;
+}
+
+.nav-button:hover {
+    color: #d1d5db;
+}
+
+.nav-button.active {
+    text-decoration: underline;
+}
+
+.data-card {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow:
+        0 1px 3px 0 rgba(0, 0, 0, 0.1),
+        0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.data-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.player-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.player-item {
+    margin-bottom: 0.25rem;
+}
