@@ -21,6 +21,7 @@ const Leaderboard = () => {
     "avnish0",
     "v00ni_7",
     "jbze",
+    "biraj21"
   ];
 
   useEffect(() => {
